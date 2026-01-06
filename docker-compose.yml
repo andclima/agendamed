@@ -1,0 +1,124 @@
+services:
+  db:
+    image: mariadb:10.6
+    container_name: agendamed-db
+    restart: always
+    environment:
+      MARIADB_DATABASE: ${MARIADB_DATABASE}
+      MARIADB_USER: ${MARIADB_USER}
+      MARIADB_PASSWORD: ${MARIADB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+    ports:
+      - "3366:3306"
+    volumes:
+      - mariadb_agendamed:/var/lib/mysql
+      - ./docker/mariadb.cnf:/etc/mysql/conf.d/my.cnf
+      - ./docker/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - agendamed-network
+
+  rabbitmq:
+    image: "rabbitmq:3-management"
+    container_name: rabbitmq
+    restart: always
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq/
+    networks:
+      - agendamed-network
+
+  smtp4dev:
+    image: rnwood/smtp4dev:v3
+    restart: always
+    ports:
+      - '3000:80'
+      - '2525:25'
+      - '143:143'
+      - '110:110'
+    volumes:
+      - smtp4dev-data:/smtp4dev
+    networks:
+      - agendamed-network
+
+  app:
+    build:
+      context: ms-agenda
+      dockerfile: Dockerfile
+    container_name: ms-agenda
+    restart: on-failure
+    depends_on:
+      - db
+      - rabbitmq
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mariadb://db:3306/${MARIADB_DATABASE}
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_RABBITMQ_PORT: 5672
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
+      API_CLIENT_EMAIL: ${API_CLIENT_EMAIL}
+      API_CLIENT_PASSWORD: ${API_CLIENT_PASSWORD}
+    networks:
+      - agendamed-network
+
+  app-historico:
+    build:
+      context: ms-historico
+      dockerfile: Dockerfile
+    container_name: ms-historico
+    restart: on-failure
+    depends_on:
+      - app
+    ports:
+      - "8081:8081"
+    environment:
+      API_CLIENT_URL: http://app:8080
+      API_CLIENT_EMAIL: ${API_CLIENT_EMAIL}
+      API_CLIENT_PASSWORD: ${API_CLIENT_PASSWORD}
+    networks:
+      - agendamed-network
+
+  app-notificacao:
+    build:
+      context: ms-notificacao
+      dockerfile: Dockerfile
+    container_name: ms-notificacao
+    restart: on-failure
+    depends_on:
+      - app
+      - rabbitmq
+      - smtp4dev
+    ports:
+      - "8082:8082"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mariadb://db:3306/${MARIADB_DATABASE}
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_RABBITMQ_PORT: 5672
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
+      SPRING_MAIL_HOST: smtp4dev
+      SPRING_MAIL_PORT: 25
+      API_CLIENT_URL: http://app:8080
+      API_CLIENT_EMAIL: ${API_CLIENT_EMAIL}
+      API_CLIENT_PASSWORD: ${API_CLIENT_PASSWORD}
+    networks:
+      - agendamed-network
+
+networks:
+  agendamed-network:
+    driver: bridge
+
+volumes:
+  mariadb_agendamed:
+  rabbitmq_data:
+  smtp4dev-data:

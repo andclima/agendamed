@@ -1,0 +1,39 @@
+scalar LocalDateTime
+
+enum SituacaoConsulta {
+    AGENDADA
+    REALIZADA
+    CANCELADA
+}
+
+enum PerfilUsuario {
+    PACIENTE
+    MEDICO
+    ADMIN
+    ENFERMEIRO
+}
+
+type Usuario {
+    id: ID!
+    nome: String!
+    email: String!
+    telefone: String!
+    perfil: PerfilUsuario
+}
+
+type Consulta {
+    id: ID!
+    dataConsulta: LocalDateTime!
+    paciente: Usuario!
+    medico: Usuario!
+    usuario: Usuario!
+    situacao: SituacaoConsulta
+}
+
+type Query {
+    usuarios: [Usuario]
+    usuariosByPerfil(perfil: PerfilUsuario!): [Usuario]
+    usuarioById(id: ID!): Usuario
+    consultas: [Consulta]
+    consultasByPacienteId(id: ID!, apenasFutura: Boolean): [Consulta]
+}

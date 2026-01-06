@@ -1,0 +1,51 @@
+# CONSULTA 1
+query {
+  usuarios {
+    id
+    nome
+    email
+    telefone
+  }
+}
+
+# CONSULTA 2
+query {
+  usuariosByPerfil(perfil: PACIENTE) {
+    nome
+    email
+  }
+}
+
+# CONSULTA 3
+query {
+  usuarioById(id: "258de584-4ca8-4a1b-b8c6-c1981dff9a40") {
+    nome
+    email
+  }
+}
+
+# CONSULTA 4
+query {
+  consultas {
+    id
+    dataConsulta
+    paciente {
+      id
+      nome
+    }
+    medico {
+      nome
+    }
+  }
+}
+
+# CONSULTA 5
+query {
+  consultasByPacienteId(id: "a6e558e9-181e-4935-937a-dc9b1701f98d", apenasFutura: true) {
+    id
+    dataConsulta
+    medico {
+      nome
+    }
+  }
+}
