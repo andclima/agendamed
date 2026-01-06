@@ -1,0 +1,687 @@
+{
+  "info": {
+    "name": "fiap-techchallenge3",
+    "description": "",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Cria consulta 1",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "key": "token",
+            "value": "{{TOKEN}}",
+            "type": "string"
+          }
+        },
+        "description": "",
+        "url": {
+          "raw": "{{BASE_URL_MS_AGENDA}}/consultas",
+          "protocol": "",
+          "host": [
+            "{{BASE_URL_MS_AGENDA}}"
+          ],
+          "path": [
+            "consultas"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"medicoId\": \"{{ID_MEDICO_MARIA}}\",\n    \"pacienteId\": \"{{ID_PACIENTE_RAIMUNDO}}\",\n    \"dataConsulta\": \"2026-01-09T12:00:00\",\n    \"anotacao\": \"\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Cria consulta 2",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "key": "token",
+            "value": "{{TOKEN}}",
+            "type": "string"
+          }
+        },
+        "description": "",
+        "url": {
+          "raw": "{{BASE_URL_MS_AGENDA}}/consultas",
+          "protocol": "",
+          "host": [
+            "{{BASE_URL_MS_AGENDA}}"
+          ],
+          "path": [
+            "consultas"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"medicoId\": \"{{ID_MEDICO_MARIA}}\",\n    \"pacienteId\": \"{{ID_PACIENTE_PEDRO}}\",\n    \"dataConsulta\": \"2026-01-06T10:40:00\",\n    \"anotacao\": \"\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Cria consulta 3",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "key": "token",
+            "value": "{{TOKEN}}",
+            "type": "string"
+          }
+        },
+        "description": "",
+        "url": {
+          "raw": "{{BASE_URL_MS_AGENDA}}/consultas",
+          "protocol": "",
+          "host": [
+            "{{BASE_URL_MS_AGENDA}}"
+          ],
+          "path": [
+            "consultas"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"medicoId\": \"{{ID_MEDICO_MARIA}}\",\n    \"pacienteId\": \"{{ID_PACIENTE_RAIMUNDO}}\",\n    \"dataConsulta\": \"2026-01-08T09:10:00\",\n    \"anotacao\": \"\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Cria consulta 4",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "key": "token",
+            "value": "{{TOKEN}}",
+            "type": "string"
+          }
+        },
+        "description": "",
+        "url": {
+          "raw": "{{BASE_URL_MS_AGENDA}}/consultas",
+          "protocol": "",
+          "host": [
+            "{{BASE_URL_MS_AGENDA}}"
+          ],
+          "path": [
+            "consultas"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"medicoId\": \"{{ID_MEDICO_MARIA}}\",\n    \"pacienteId\": \"{{ID_PACIENTE_RAIMUNDO}}\",\n    \"dataConsulta\": \"2026-01-06T16:30:00\",\n    \"anotacao\": \"\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Cria enfermeiro Sicrano",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "key": "token",
+            "value": "{{TOKEN}}",
+            "type": "string"
+          }
+        },
+        "description": "",
+        "url": {
+          "raw": "{{BASE_URL_MS_AGENDA}}/usuarios",
+          "protocol": "",
+          "host": [
+            "{{BASE_URL_MS_AGENDA}}"
+          ],
+          "path": [
+            "usuarios"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"nome\": \"Sicrano\",\n    \"email\": \"sicrano@email.com\",\n    \"telefone\": \"(86) 97878-4576\",\n    \"senha\": \"P455worD\",\n    \"perfil\": \"ENFERMEIRO\",\n    \"situacao\": \"ATIVO\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Cria médico Maria",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "key": "token",
+            "value": "{{TOKEN}}",
+            "type": "string"
+          }
+        },
+        "description": "",
+        "url": {
+          "raw": "{{BASE_URL_MS_AGENDA}}/usuarios",
+          "protocol": "",
+          "host": [
+            "{{BASE_URL_MS_AGENDA}}"
+          ],
+          "path": [
+            "usuarios"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"nome\": \"Maria\",\n    \"email\": \"maria@email.com\",\n    \"telefone\": \"(86) 98877-1234\",\n    \"senha\": \"p4ssw0Rd\",\n    \"perfil\": \"MEDICO\",\n    \"situacao\": \"ATIVO\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Cria paciente Pedro",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "key": "token",
+            "value": "{{TOKEN}}",
+            "type": "string"
+          }
+        },
+        "description": "",
+        "url": {
+          "raw": "{{BASE_URL_MS_AGENDA}}/usuarios",
+          "protocol": "",
+          "host": [
+            "{{BASE_URL_MS_AGENDA}}"
+          ],
+          "path": [
+            "usuarios"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"nome\": \"Pedro\",\n    \"email\": \"pedro@email.com\",\n    \"telefone\": \"(86) 99986-5678\",\n    \"senha\": \"{p}4ssw0Rd#\",\n    \"perfil\": \"PACIENTE\",\n    \"situacao\": \"ATIVO\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Cria paciente Raimundo",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "key": "token",
+            "value": "{{TOKEN}}",
+            "type": "string"
+          }
+        },
+        "description": "",
+        "url": {
+          "raw": "{{BASE_URL_MS_AGENDA}}/usuarios",
+          "protocol": "",
+          "host": [
+            "{{BASE_URL_MS_AGENDA}}"
+          ],
+          "path": [
+            "usuarios"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"nome\": \"Raimundo Pereira\",\n    \"email\": \"raimundo@email.com\",\n    \"telefone\": \"(86) 99988-5678\",\n    \"senha\": \"{p}4ssw0Rd\",\n    \"perfil\": \"PACIENTE\",\n    \"situacao\": \"ATIVO\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Encerra consulta 1",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "key": "token",
+            "value": "{{TOKEN}}",
+            "type": "string"
+          }
+        },
+        "description": "",
+        "url": {
+          "raw": "{{BASE_URL_MS_AGENDA}}/consultas/{{ID_CONSULTA_1}}",
+          "protocol": "",
+          "host": [
+            "{{BASE_URL_MS_AGENDA}}"
+          ],
+          "path": [
+            "consultas",
+            "{{ID_CONSULTA_1}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"medicoId\": \"{{ID_MEDICO_MARIA}}\",\n    \"pacienteId\": \"{{ID_PACIENTE_RAIMUNDO}}\",\n    \"dataConsulta\": \"2026-01-12T19:00:00\",\n    \"anotacao\": \"Paciente com febre e devidamente medicado\",\n    \"situacao\": \"REALIZADA\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Lista Consultas",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "key": "token",
+            "value": "{{TOKEN}}",
+            "type": "string"
+          }
+        },
+        "description": "",
+        "url": {
+          "raw": "{{BASE_URL_MS_AGENDA}}/consultas",
+          "protocol": "",
+          "host": [
+            "{{BASE_URL_MS_AGENDA}}"
+          ],
+          "path": [
+            "consultas"
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "Lista Usuários",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "key": "token",
+            "value": "{{TOKEN}}",
+            "type": "string"
+          }
+        },
+        "description": "",
+        "url": {
+          "raw": "{{BASE_URL_MS_AGENDA}}/usuarios",
+          "protocol": "",
+          "host": [
+            "{{BASE_URL_MS_AGENDA}}"
+          ],
+          "path": [
+            "usuarios"
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "Login Admin",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "{{BASE_URL_MS_AGENDA}}/login",
+          "protocol": "",
+          "host": [
+            "{{BASE_URL_MS_AGENDA}}"
+          ],
+          "path": [
+            "login"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"admin@email.com\",\n  \"password\": \"123456\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Login Maria",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "{{BASE_URL_MS_AGENDA}}/login",
+          "protocol": "",
+          "host": [
+            "{{BASE_URL_MS_AGENDA}}"
+          ],
+          "path": [
+            "login"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"maria@email.com\",\n  \"password\": \"p4ssw0Rd\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Login Pedro",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "{{BASE_URL_MS_AGENDA}}/login",
+          "protocol": "",
+          "host": [
+            "{{BASE_URL_MS_AGENDA}}"
+          ],
+          "path": [
+            "login"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"pedro@email.com\",\n  \"password\": \"{p}4ssw0Rd#\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Login Raimundo",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "{{BASE_URL_MS_AGENDA}}/login",
+          "protocol": "",
+          "host": [
+            "{{BASE_URL_MS_AGENDA}}"
+          ],
+          "path": [
+            "login"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"raimundo@email.com\",\n  \"password\": \"{p}4ssw0Rd\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Login Sicrano",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "{{BASE_URL_MS_AGENDA}}/login",
+          "protocol": "",
+          "host": [
+            "{{BASE_URL_MS_AGENDA}}"
+          ],
+          "path": [
+            "login"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"sicrano@email.com\",\n  \"password\": \"P455worD\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Obtém Consulta 1",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "key": "token",
+            "value": "{{TOKEN}}",
+            "type": "string"
+          }
+        },
+        "description": "",
+        "url": {
+          "raw": "{{BASE_URL_MS_AGENDA}}/consultas/{{ID_CONSULTA_1}}",
+          "protocol": "",
+          "host": [
+            "{{BASE_URL_MS_AGENDA}}"
+          ],
+          "path": [
+            "consultas",
+            "{{ID_CONSULTA_1}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "Obtém Maria",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "key": "token",
+            "value": "{{TOKEN}}",
+            "type": "string"
+          }
+        },
+        "description": "",
+        "url": {
+          "raw": "{{BASE_URL_MS_AGENDA}}/usuarios/{{ID_MEDICO_MARIA}}",
+          "protocol": "",
+          "host": [
+            "{{BASE_URL_MS_AGENDA}}"
+          ],
+          "path": [
+            "usuarios",
+            "{{ID_MEDICO_MARIA}}"
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "Atualiza consulta 1",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "key": "token",
+            "value": "{{TOKEN}}",
+            "type": "string"
+          }
+        },
+        "description": "",
+        "url": {
+          "raw": "{{BASE_URL_MS_AGENDA}}/consultas/{{ID_CONSULTA_1}}",
+          "protocol": "",
+          "host": [
+            "{{BASE_URL_MS_AGENDA}}"
+          ],
+          "path": [
+            "consultas",
+            "{{ID_CONSULTA_1}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"medicoId\": \"{{ID_MEDICO_MARIA}}\",\n    \"pacienteId\": \"{{ID_PACIENTE_RAIMUNDO}}\",\n    \"dataConsulta\": \"2026-01-12T19:00:00\",\n    \"anotacao\": \"\",\n    \"situacao\": \"AGENDADA\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "BASE_URL_MS_AGENDA",
+      "value": "",
+      "type": "default"
+    },
+    {
+      "key": "TOKEN",
+      "value": "",
+      "type": "default"
+    },
+    {
+      "key": "ID_MEDICO_MARIA",
+      "value": "",
+      "type": "default"
+    },
+    {
+      "key": "ID_PACIENTE_RAIMUNDO",
+      "value": "",
+      "type": "default"
+    },
+    {
+      "key": "ID_PACIENTE_PEDRO",
+      "value": "",
+      "type": "default"
+    },
+    {
+      "key": "ID_CONSULTA_1",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}
